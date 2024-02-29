@@ -5,15 +5,16 @@
 const express = require("express");
 const app = express()
 const DB = require("./Database/connect")
-const authRoute = require("./Routers/authRout")
+// const authRoute = require("./Routers/authRout")
 // const searchRout=require("./Routers/searchRout")
-// const bbauth=require("./Routers/bloodbankRout")
+const bbauth=require("./Routers/bloodbankRout")
 
 const cors = require("cors")
 const bodyparser = require("body-parser")
 const cookieparser = require("cookie-parser");
 require('dotenv').config();
 const PORT = process.env.PORT || 3001
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,12 +38,13 @@ app.use(cors({
 DB.DBConnect();  // Database connecting func
 
 
-app.use("/auth", authRoute); //auth/register
+// app.use("/auth", authRoute); //auth/register
 
 // app.use("/search",searchRout) 
 
 
-// app.use("/bloodbank",bbauth)  // blood bank auth  
+app.use("/bloodbank",bbauth)  // blood bank auth  
+
 
 
 
