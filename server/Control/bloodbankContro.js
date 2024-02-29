@@ -58,7 +58,7 @@ module.exports = {
 
                 const { _id, name } = respo.data
 
-                const token = JWT.sign({ name: name, id: _id }, process.env.JWT_BB_SECRET_KEY);
+                const token = JWT.sign({ name: name, id: _id }, "clumsy1937");
 
 
                 res.cookie("donor_sync_blood_bank", token, {
@@ -87,7 +87,7 @@ module.exports = {
 
         const token = req.cookies.donor_sync_blood_bank
 
-        JWT.verify(token, process.env.JWT_BB_SECRET_KEY, (err, result) => {
+        JWT.verify(token, "clumsy1937", (err, result) => {
 
             if (result) {
 
@@ -138,7 +138,7 @@ module.exports = {
 
         const token = req.cookies.donor_sync_blood_bank
 
-        JWT.verify(token, process.env.JWT_BB_SECRET_KEY, (err, result) => {
+        JWT.verify(token, "clumsy1937", (err, result) => {
 
             if (result) {
 
@@ -186,7 +186,7 @@ module.exports = {
 
         const token = req.cookies.donor_sync_blood_bank
 
-        JWT.verify(token, process.env.JWT_BB_SECRET_KEY, (err, result) => {
+        JWT.verify(token, "clumsy1937", (err, result) => {
 
             if (result) {
 

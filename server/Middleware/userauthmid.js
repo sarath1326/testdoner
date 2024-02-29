@@ -18,7 +18,7 @@ module.exports = {
 
         } else {
 
-            JWT.verify(token, process.env.JWT_BB_SECRET_KEY, (err, resilt) => {
+            JWT.verify(token, "clumsy1937", (err, resilt) => {
 
                 if (resilt) {
 

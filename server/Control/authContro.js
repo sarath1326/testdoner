@@ -80,7 +80,7 @@ module.exports = {
 
                 const { _id, name } = respo.data
 
-                const token = JWT.sign({ name: name, id: _id }, process.env.JWT_BB_SECRET_KEY);
+                const token = JWT.sign({ name: name, id: _id },"clumsy1937" );
 
                 res.cookie("donor_sync_user", token, {
 
@@ -120,7 +120,7 @@ module.exports = {
 
         console.log("account view")
 
-        JWT.verify(token, process.env.JWT_BB_SECRET_KEY,(err,result)=>{
+        JWT.verify(token,"clumsy1937",(err,result)=>{
 
               
               if(err){
