@@ -5,7 +5,7 @@
 const express = require("express");
 const app = express()
 const DB = require("./Database/connect")
-// const authRoute = require("./Routers/authRout")
+const authRoute = require("./Routers/authRout")
 // const searchRout=require("./Routers/searchRout")
 // const bbauth=require("./Routers/bloodbankRout")
 
@@ -37,7 +37,7 @@ app.use(cors({
 DB.DBConnect();  // Database connecting func
 
 
-// app.use("/auth", authRoute); //auth/register
+app.use("/auth", authRoute); //auth/register
 
 // app.use("/search",searchRout) 
 
@@ -45,11 +45,6 @@ DB.DBConnect();  // Database connecting func
 // app.use("/bloodbank",bbauth)  // blood bank auth  
 
 
-app.get("/home", (req, res) => {
-
-      res.json({ msg: "hiiii" })
-
-})
 
 
 
