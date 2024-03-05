@@ -36,6 +36,7 @@ function Signup() {
     password: "",
     district: "",
     city: "",
+    timestamp:""
 
   });
 
@@ -46,11 +47,30 @@ function Signup() {
 
   const formSubmit = (e) => {
 
+    const date = new Date
+    const year = date.getFullYear()
+    const month = date.getMonth()+1
+    const res = year + "-" + month
+
+
+    const data={
+
+      name: inputValus.name,
+      mobile: inputValus.mobile,
+      regnumber: inputValus.regnumber,
+      password: inputValus.password,
+      district: inputValus.district,
+      city: inputValus.city,
+      timestamp:res
+        
+    }
+
 
 
     setspinner(true);
     console.log(inputValus);
-    axios.post("/bloodbank/signup", inputValus).then((respo) => {
+    
+    axios.post("/bloodbank/signup", data).then((respo) => {
 
       if (respo.data.exist) {
 
